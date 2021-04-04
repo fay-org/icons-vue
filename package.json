@@ -1,7 +1,7 @@
 {
-  "name": "vue-icons",
+  "name": "@fect-ui/icons-vue",
   "version": "0.1.0",
-  "publick": true,
+  "public": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

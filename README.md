@@ -1,29 +1,30 @@
-# vue-icons
+# icons-vue
 
-## Project setup
-```
-npm install
-```
+@fect-ui/vue icons provider
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Usage
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### install
 
-### Run your unit tests
-```
-npm run test:unit
+```shell
+
+yarn add @fect-ui/themes @fect-ui/vue-icons
+
+npm install @fect-ui/themes @fect-ui/vue-icons
+
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+### import
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```js
+import { createApp } from 'vue'
+import App from './App.vue'
+import '@/fect-ui/themes'
+
+import FectIcon from '@fect-ui/vue-icons'
+
+createApp(App)
+  .use(router)
+  .use(FectIcon)
+  .mount('#app')
+```

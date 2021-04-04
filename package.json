@@ -1,14 +1,18 @@
 {
-  "name": "@fect-ui/icons-vue",
+  "name": "@fect-ui/vue-icons",
   "version": "0.1.0",
   "public": true,
+  "main": "dist/index.common.js",
+  "module": "dist/index.common.js",
+  "license": "MIT",
+  "description": "@fect-ui/vue icons provider",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "icons": "npm run update && ts-node ./scripts/generator.ts",
     "update": "ts-node ./scripts/updateSource.ts",
     "test:unit": "vue-cli-service test:unit",
-    "build:icons": "vue-cli-service build --target lib --name fect-icon ./packages/index.ts",
+    "build:icons": "vue-cli-service build --target lib --name  index ./packages/index.ts",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -17,6 +21,10 @@
     "vue-class-component": "^8.0.0-0",
     "vue-router": "^4.0.0-0"
   },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/fs-extra": "^9.0.10",

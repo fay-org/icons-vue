@@ -14,34 +14,33 @@
   ></svg>
 </template>
 <script lang="ts">
-import { defineComponent, toRefs } from "vue";
-import iconsPool from "./iconsPool";
-
+import { defineComponent, toRefs } from 'vue'
+import iconsPool from './iconsPool'
 export default defineComponent({
-  name: "fectIcon",
+  name: 'fectIcon',
   props: {
     icon: String,
     size: {
       type: [String, Number],
-      default: 24
+      default: 24,
     },
     color: {
       type: String,
-      default: "currentColor"
-    }
+      default: 'currentColor',
+    },
   },
-  setup(props: any) {
-    const { icon } = toRefs(props);
+  setup(props) {
+    const { icon } = toRefs(props)
     const camelize = (name: string) => {
-      const CAMELIZE_REG = /-(\w)/g;
-      return name.replace(CAMELIZE_REG, (_, key) => key.toUpperCase());
-    };
+      const CAMELIZE_REG = /-(\w)/g
+      return name.replace(CAMELIZE_REG, (_, key) => key.toUpperCase())
+    }
 
-    const renderIcons = () => iconsPool[camelize(icon?.value)] || null;
+    const renderIcons = () => iconsPool[camelize(icon?.value as string)] || null
 
     return {
-      renderIcons
-    };
-  }
-});
+      renderIcons,
+    }
+  },
+})
 </script>

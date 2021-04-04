@@ -31,7 +31,7 @@ const scriptTempalte = `<script lang="ts">
         default:'currentColor'
       },
     },
-    setup(props:any){
+    setup(props){
       const {icon } = toRefs(props)
       const camelize = (name: string) => {
         const CAMELIZE_REG = /-(\\w)/g
@@ -39,7 +39,7 @@ const scriptTempalte = `<script lang="ts">
         return name.replace(CAMELIZE_REG, (_, key) => key.toUpperCase())
       }
 
-      const renderIcons = () => iconsPool[camelize(icon?.value)] || null
+      const renderIcons = () => iconsPool[camelize(icon?.value as string)] || null
 
       return{
         renderIcons

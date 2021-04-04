@@ -1,11 +1,14 @@
 {
   "name": "vue-icons",
   "version": "0.1.0",
-  "private": true,
+  "publick": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "icons": "npm run update && ts-node ./scripts/generator.ts",
+    "update": "ts-node ./scripts/updateSource.ts",
     "test:unit": "vue-cli-service test:unit",
+    "build:icons": "vue-cli-service build --target lib --name fect-icon ./packages/index.ts",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -18,6 +21,7 @@
     "@types/axios": "^0.14.0",
     "@types/fs-extra": "^9.0.10",
     "@types/jest": "^24.0.19",
+    "@types/jsdom": "^16.2.10",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "@vue/babel-plugin-jsx": "^1.0.4",
@@ -37,7 +41,9 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^7.0.0",
     "fs-extra": "^9.1.0",
+    "jsdom": "^16.5.2",
     "lint-staged": "^9.5.0",
+    "ts-node": "^9.1.1",
     "typescript": "~4.1.5",
     "vue-jest": "^5.0.0-0"
   },

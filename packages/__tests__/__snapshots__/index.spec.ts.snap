@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for icons-vue Should be render as right icons  1`] = `
+<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" style="color: currentColor;" shapeRendering="geometricPrecision">
+  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+</svg>
+`;

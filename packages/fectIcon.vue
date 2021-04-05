@@ -19,7 +19,10 @@ import iconsPool from './iconsPool'
 export default defineComponent({
   name: 'fectIcon',
   props: {
-    icon: String,
+    icon: {
+      type: [String],
+      default: '',
+    },
     size: {
       type: [String, Number],
       default: 24,
@@ -32,12 +35,15 @@ export default defineComponent({
   setup(props) {
     const { icon } = toRefs(props)
     const camelize = (name: string) => {
-      const CAMELIZE_REG = /-(\w)/g
+      const CAMELIZE_REG = /-(w)/g
       return name.replace(CAMELIZE_REG, (_, key) => key.toUpperCase())
     }
 
-    const renderIcons = () => iconsPool[camelize(icon?.value as string)] || null
+    if (icon.value === '') throw "icon value can't be empty"
+    const isIcon: boolean = Object.keys(iconsPool).includes(icon.value)
+    if (!isIcon) throw 'Abort! Please enter the correct icon value'
 
+    const renderIcons = () => iconsPool[camelize(icon?.value as string)]
     return {
       renderIcons,
     }

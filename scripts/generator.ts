@@ -2,7 +2,12 @@ import fs from 'fs-extra'
 import path from 'path'
 import { JSDOM } from 'jsdom'
 import { camelize, replaceStyle } from './tools'
-import { renderTempalte, scriptTempalte, installerTemplate } from './template'
+import {
+  renderTempalte,
+  scriptTempalte,
+  installerTemplate,
+  makeBasicDefine,
+} from './template'
 
 const outDir = path.resolve(__dirname, '../packages')
 const sourcePath = path.resolve(__dirname, '../sourceMap')
@@ -40,8 +45,10 @@ export default (async () => {
   const componentPath = path.join(outDir, './fectIcon.vue')
   const installerPath = path.join(outDir, './index.ts')
   const iconsPoolPath = path.join(outDir, './iconsPool.ts')
+  const declarePath = path.join(outDir, './index.d.ts')
   await fs.mkdir(outDir)
   await fs.writeFile(iconsPoolPath, iconsPoolFile)
   await fs.writeFile(componentPath, componentFile)
   await fs.writeFile(installerPath, installerFile)
+  await fs.writeFile(declarePath, makeBasicDefine)
 })()

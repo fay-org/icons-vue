@@ -37,13 +37,15 @@ export default defineComponent({
   setup(props) {
     const { icon } = toRefs(props)
     const camelize = (name: string) => {
-      const CAMELIZE_REG = /-(\w)/g
+      const CAMELIZE_REG = /-(w)/g
       return name.replace(CAMELIZE_REG, (_, key) => key.toUpperCase())
     }
 
-    if (icon.value === '') throw "icon value can't not be empty"
-    const renderIcons = () => iconsPool[camelize(icon?.value as string)] || null
+    if (icon.value === '') throw "icon value can't be empty"
+    const isIcon: boolean = Object.keys(iconsPool).includes(icon.value)
+    if (!isIcon) throw 'Abort! Please enter the correct icon value'
 
+    const renderIcons = () => iconsPool[camelize(icon?.value as string)]
     return {
       renderIcons,
     }
@@ -63,4 +65,17 @@ export default install;
 
 `
 
-export { renderTempalte, scriptTempalte, installerTemplate }
+const makeBasicDefine = `import { App } from 'vue';\n
+
+export class FectComponent {
+  static name: string
+
+  static install: (app: App) => any
+
+  $props: Record<string, any>
+};\n
+
+export default class FectIcon extends FectComponent {};\n
+`
+
+export { renderTempalte, scriptTempalte, installerTemplate, makeBasicDefine }

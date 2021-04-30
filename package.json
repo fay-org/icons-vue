@@ -1,9 +1,10 @@
 {
   "name": "@fect-ui/vue-icons",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "public": true,
   "main": "dist/index.common.js",
   "module": "dist/index.common.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "description": "@fect-ui/vue icons provider",
   "scripts": {
@@ -12,7 +13,7 @@
     "icons": "npm run update && ts-node ./scripts/generator.ts",
     "update": "ts-node ./scripts/updateSource.ts",
     "test:unit": "vue-cli-service test:unit",
-    "build:icons": "vue-cli-service build --target lib --name  index ./packages/index.ts",
+    "build:icons": "vue-cli-service build --target lib --name  index ./packages/index.ts && cp ./packages/index.d.ts dist/",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -23,13 +24,16 @@
   },
   "files": [
     "dist",
-    "LICENSE"
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md"
   ],
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/fs-extra": "^9.0.10",
     "@types/jest": "^24.0.19",
     "@types/jsdom": "^16.2.10",
+    "@types/node": "^14.14.37",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "@vue/babel-plugin-jsx": "^1.0.4",

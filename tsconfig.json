@@ -11,7 +11,7 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "baseUrl": ".",
     "types": [
       "webpack-env",
@@ -35,7 +35,7 @@
     "src/**/*.vue",
     "packages/**/*.ts",
     "scripts/**/*.ts"
-  ],
+, "dist/index.d.ts"  ],
   "exclude": [
     "node_modules"
   ]

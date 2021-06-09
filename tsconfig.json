@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "outDir": "../dist/types",
+    "target": "ES5",
+    "module": "commonjs",
+    "importHelpers": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": false,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["ES2015", "dom"]
+    // "types": ["*", "../src/*.d.ts"]
+  },
+  "files": ["../packages/index.ts"],
+  "include": ["../src/**/*.d.ts"],
+  "exclude": ["node_modules", "src/**/*"]
+}

@@ -1,0 +1,27 @@
+<template><svg :width="setSize" :height="setSize" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" shape-rendering="geometricPrecision" :style={color:setColor}><path d="M4.055 2.055A2.75 2.75 0 0 1 6 1.25h12A2.75 2.75 0 0 1 20.75 4v16A2.75 2.75 0 0 1 18 22.75H6A2.75 2.75 0 0 1 3.25 20V4c0-.73.29-1.429.805-1.945zM15.116 5.31c-1.237-.194-2.29.086-3.02.83-.709.722-.998 1.758-.998 2.844v1.502H9a.75.75 0 1 0 0 1.5h2.098v3.22c0 .78-.197 1.257-.48 1.543-.283.284-.773.501-1.618.501a.75.75 0 0 0 0 1.5c1.088 0 2.023-.281 2.681-.944.658-.662.918-1.582.918-2.6v-3.22h2.062a.75.75 0 0 0 0-1.5h-2.063V8.984c0-.851.229-1.447.567-1.792.315-.32.838-.538 1.719-.4a.75.75 0 0 0 .232-1.482z" fill="var(--geist-fill)" stroke="none"/></svg></template>
+<script lang="ts">
+import { defineComponent , computed } from 'vue'
+
+export default defineComponent({
+  name: 'fileFunctionFill',
+  props:{
+    color:{
+      type:String,
+      default:'currentColor'
+    },
+    size:[String,Number]
+  },
+  setup(props){
+
+    const setColor = computed(()=>{color:props.color});
+
+    const setSize = computed(()=>props.size);
+
+    return {
+      setColor,
+      setSize,
+    }
+
+  }
+})
+</script>

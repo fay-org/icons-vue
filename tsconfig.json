@@ -1,22 +1,16 @@
 {
   "compilerOptions": {
-    "outDir": "../dist/types",
-    "target": "ES5",
-    "module": "commonjs",
+    "target": "esnext",
+    "module": "esnext",
     "importHelpers": true,
     "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "emitDeclarationOnly": true,
     "moduleResolution": "node",
     "strict": true,
     "jsx": "preserve",
-    "sourceMap": false,
+    "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["ES2015", "dom"]
-    // "types": ["*", "../src/*.d.ts"]
+    "lib": ["esnext", "dom"]
   },
-  "files": ["../packages/index.ts"],
-  "include": ["../src/**/*.d.ts"],
-  "exclude": ["node_modules", "src/**/*"]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }

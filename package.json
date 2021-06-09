@@ -1,0 +1,34 @@
+{
+  "name": "@fect-ui/vue-icons",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview",
+    "update:source": "node ./scripts/updateSource.js",
+    "generator": "ts-node ./scripts/generator.ts && ts-node ./scripts/collect.ts",
+    "build:types": "tsc -p ./scripts/tsconfig.json",
+    "build:esm": "npm run build",
+    "build:ejs": "npm run build"
+  },
+  "dependencies": {
+    "vue": "^3.0.5"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.11",
+    "@types/jsdom": "^16.2.11",
+    "@types/node": "^15.12.2",
+    "@types/svgo": "^2.3.0",
+    "@vitejs/plugin-vue": "^1.2.3",
+    "@vue/compiler-sfc": "^3.0.5",
+    "axios": "^0.21.1",
+    "fs-extra": "^10.0.0",
+    "jsdom": "^16.6.0",
+    "svgo": "^2.3.0",
+    "ts-node": "^10.0.0",
+    "tslib": "^2.2.0",
+    "typescript": "^4.3.2",
+    "vite": "^2.3.7",
+    "vue-tsc": "^0.0.24"
+  }
+}

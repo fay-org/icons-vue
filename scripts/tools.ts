@@ -8,14 +8,12 @@ const camelize = (name: string) => {
 }
 
 const replaceStyle = (val = '') => {
-  return (
-    val
-      // .replace(/"var\(--geist-fill\)"/g, '"currentColor"')
-      // .replace(/"var\(--geist-stroke\)"/g, '"currentColor"')
-      .replace(/width="([0-9]+)"/g, ':width="setSize"')
-      .replace(/height="([0-9]+)"/g, ':height="setSize"')
-      .replace(/style=(.+)">/g, ':style={color:setColor}>')
-  )
+  return val
+    .replace(/"var\(--geist-fill\)"/g, '"currentColor"')
+    .replace(/"var\(--geist-stroke\)"/g, '"var(--primary-background)"')
+    .replace(/width="([0-9]+)"/g, ':width="setSize"')
+    .replace(/height="([0-9]+)"/g, ':height="setSize"')
+    .replace(/style=(.+)">/g, ':style={color:setColor}>')
 }
 
 const parseStyle = (source = '') => {

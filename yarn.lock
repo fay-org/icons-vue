@@ -20,6 +20,11 @@
     "@babel/helper-validator-identifier" "^7.14.0"
     to-fast-properties "^2.0.0"
 
+"@fect-ui/themes@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@fect-ui/themes/-/themes-1.0.7.tgz#1bcb6a8d2720b40d81ebd66c39aee7e878f15a09"
+  integrity sha512-mBhpVVUcE/pQQXX+rMYJzzbNoUO01DPtoXx2XKIJYAjuUkC7W8AzaLVeB7e5wA7rgOKx5JtEzg7k0BOKAJyubw==
+
 "@tootallnate/once@1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"

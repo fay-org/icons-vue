@@ -15,6 +15,7 @@
     "vue": "^3.0.5"
   },
   "devDependencies": {
+    "@fect-ui/themes": "^1.0.7",
     "@types/fs-extra": "^9.0.11",
     "@types/jsdom": "^16.2.11",
     "@types/node": "^15.12.2",

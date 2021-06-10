@@ -9,7 +9,10 @@ export default defineComponent({
       type:String,
       default:'currentColor'
     },
-    size:[String,Number]
+    size:{
+      type:[String,Number],
+      default:24
+    }
   },
   setup(props){
 

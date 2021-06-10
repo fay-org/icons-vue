@@ -1,7 +1,7 @@
 <template>
   <alertCircleFill />
   <github />
-  <gitlab />
+  <gitlab :size="22" :color="'pink'" />
 </template>
 
 <script lang="ts">

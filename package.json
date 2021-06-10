@@ -1,6 +1,6 @@
 {
   "name": "@fect-ui/vue-icons",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "public": true,
   "author": "Fect Org",
   "license": "MIT",
@@ -23,7 +23,7 @@
     "clean": "rm -rf ./dist",
     "build:types": "tsc -p ./scripts/tsconfig.json",
     "build:mode": "rollup -c ./rollup.config.js",
-    "build:lib": "npm run clean && npm run build:types && npm run build:mode",
+    "build:lib": "npm run clean &&npm run generator && npm run build:types && npm run build:mode",
     "release": "npm publish --access public --non-interactive"
   },
   "peerDependencies": {

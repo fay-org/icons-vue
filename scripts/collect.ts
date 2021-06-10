@@ -27,12 +27,13 @@ export default { install }\n
 
 export default (async () => {
   const files = await fs.readdir(packagePath)
-  const name = files.map((file) => file.replace(/.vue/, ''))
+  const name = files
+    .filter((v) => v !== 'index.ts')
+    .map((file) => file.replace(/.tsx/, ''))
+    .map((v) => (replaces.includes(v) ? `_${v}` : v))
+  // .filter((n) => (n.includes(replaces) ? `_${n}` : n))
   const imports = name
-    .map((i) => {
-      const names = replaces.includes(i) ? `_${i}` : i
-      return `import ${names} from './${i}.vue';\n`
-    })
+    .map((i) => `import ${i} from './${i.replace(/_/, ' ').trim()}';\n`)
     .join(' ')
 
   const components = `const components = [${name}];\n`

@@ -19,9 +19,10 @@ export default (async () => {
     )
     const svg: SVGSVGElement = icon.querySelector('svg')!
     const { data: optimizeString } = optimize(svg.outerHTML)
-    const component = singleDefine(name)
+
     const _svg = replaceStyle(optimizeString)
-    const generate = `<template>${_svg}</template>${component}`
-    await fs.outputFile(path.resolve(outDir, `${name}.vue`), generate)
+    const component = singleDefine(name, _svg)
+
+    await fs.outputFile(path.resolve(outDir, `${name}.tsx`), component)
   })
 })()

@@ -6,9 +6,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import github from '../packages/github.vue'
-import gitlab from '../packages/gitlab.vue'
-import alertCircleFill from '../packages/alertCircleFill.vue'
+import github from '../packages/github'
+import gitlab from '../packages/gitlab'
+import alertCircleFill from '../packages/alertCircleFill'
 
 export default defineComponent({
   name: 'App',

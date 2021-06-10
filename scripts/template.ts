@@ -1,5 +1,5 @@
-export const singleDefine = (name: string) => `
-<script lang="ts">
+export const singleDefine = (name: string, el: string) => `
+
 import { defineComponent , computed } from 'vue'
 
 export default defineComponent({
@@ -13,16 +13,13 @@ export default defineComponent({
   },
   setup(props){
 
-    const setColor = computed(()=>{color:props.color});
+    const setColor = computed(()=>props.color);
 
     const setSize = computed(()=>props.size);
-
-    return {
-      setColor,
-      setSize,
-    }
+    
+    return ()=>${el}
 
   }
 })
-</script>
+
 `

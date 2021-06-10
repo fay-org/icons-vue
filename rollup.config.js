@@ -8,7 +8,6 @@ import typescript from 'rollup-plugin-typescript2'
 
 const packagePath = path.join(__dirname, './packages')
 
-
 const extensions = ['.js', '.vue', '.tsx']
 
 const external = ['vue', '@babel/runtime']
@@ -49,19 +48,19 @@ const esmOutPut = {
 
 export default (async () => {
   const files = await fs.readdir(packagePath)
- 
+
   const compoenents = await Promise.all(
     files
-      .map((v) => v.replace(/.tsx/, ' ').trim())
       .map(async (name) => {
+        const _name = name.replace(/\.tsx?$/g, ' ').trim()
         const comPath = path.join(packagePath, name)
         return {
-          name: name,
+          name: _name,
           url: comPath,
         }
       })
   )
- 
+
   return [
     ...compoenents
       .filter((r) => r)

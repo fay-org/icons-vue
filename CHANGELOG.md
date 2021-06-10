@@ -1,5 +1,11 @@
 ## Changelog
 
+## 0.1.4
+
+`2021-06-10`
+
+- fix build error
+
 ## 0.1.3
 
 - support typescript

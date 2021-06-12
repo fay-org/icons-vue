@@ -19,4 +19,4 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: yarn --frozen-lockfile
-      - run: yarn build:lib --if-present
+      - run: yarn generator --if-present

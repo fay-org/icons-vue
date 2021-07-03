@@ -1,3 +1,7 @@
+/**
+ * this file is use babel to build packages file
+ */
+
 import { resolve } from 'path'
 import { transformAsync } from '@babel/core'
 import { copy, remove, readdir, readFileSync, outputFileSync } from 'fs-extra'

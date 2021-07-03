@@ -1,3 +1,7 @@
+/**
+ * collect all file from packages
+ */
+
 import fs from 'fs-extra'
 import path from 'path'
 

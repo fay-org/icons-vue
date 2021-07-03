@@ -3,7 +3,7 @@ import path from 'path'
 import { JSDOM } from 'jsdom'
 import { optimize } from 'svgo'
 import { singleDefine } from './template'
-import { camelize, replaceStyle } from './tools'
+import { camelize, parseStyle, parseSvg } from './tools'
 
 const outDir = path.resolve(__dirname, '../packages')
 const sourcePath = path.join(__dirname, '../sourcemap')
@@ -19,10 +19,8 @@ export default (async () => {
     )
     const svg: SVGSVGElement = icon.querySelector('svg')!
     const { data: optimizeString } = optimize(svg.outerHTML)
-    const viewBox = optimizeString.replace(/<svg/, '<svg viewBox="0 0 24 24"')
-    const _svg = replaceStyle(viewBox)
-    const component = singleDefine(name, _svg)
-
+    const styles = parseStyle(svg.getAttribute('style')!)
+    const component = singleDefine(name, parseSvg(optimizeString, styles))
     await fs.outputFile(path.resolve(outDir, `${name}.tsx`), component)
   })
 })()

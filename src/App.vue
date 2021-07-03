@@ -1,21 +1,34 @@
 <template>
-  <alertCircleFill />
-  <github />
-  <gitlab :size="22" :color="'pink'" />
+  <div class="fx">
+    <div v-for="(item, i) in icons" :key="i" class="itm">
+      <component :is="item" />
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import github from '../packages/github'
-import gitlab from '../packages/gitlab'
-import alertCircleFill from '../packages/alertCircleFill'
+import Icons from './pool'
 
 export default defineComponent({
   name: 'App',
-  components: {
-    alertCircleFill,
-    github,
-    gitlab,
+
+  setup() {
+    const icons = Icons
+    return {
+      icons,
+    }
   },
 })
 </script>
+
+<style scoped>
+.fx {
+  display: flex;
+  flex-wrap: wrap;
+}
+.itm {
+  width: 50px;
+  height: 50px;
+}
+</style>

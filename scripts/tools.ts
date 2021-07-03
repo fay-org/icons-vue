@@ -7,10 +7,16 @@ const camelize = (name: string) => {
   return name.replace(REG, (_, key) => key.toUpperCase())
 }
 
+export const replaceAll = (
+  target: string,
+  find: string,
+  replace: string
+): string => {
+  return target.split(find).join(replace)
+}
+
 const replaceStyle = (val = '') => {
   return val
-    .replace(/"var\(--geist-fill\)"/g, '"currentColor"')
-    .replace(/"var\(--geist-stroke\)"/g, '"var(--primary-background)"')
     .replace(/width="([0-9]+)"/g, 'width={ setSize.value }')
     .replace(/height="([0-9]+)"/g, 'height={ setSize.value }')
     .replace(/style=(.+)">/g, 'style={{color:setColor.value}}>')
@@ -28,20 +34,20 @@ const parseStyle = (source = '') => {
 }
 
 const parseSvg = (svg: string, style: any) => {
-  const initColor = (val: string, ident: string) => {
-    return val.includes(ident) ? '{color}' : '"var(--primary-background)"'
+  const initColor = (val: string | undefined, ident: string) => {
+    if (!val) return '""'
+    return val.includes(ident)
+      ? '"currentColor"'
+      : '"var(--primary-background)"'
   }
-  const fillColor =
-    (style['--geist-fill'] &&
-      initColor(style['--geist-fill'], 'currentColor')) ||
-    ''
-  const strokeColor =
-    (style['--geist-stroke'] &&
-      initColor(style['--geist-stroke'], 'currentColor')) ||
-    ''
+  svg = replaceStyle(svg)
+  const fillColor = initColor(style['--geist-fill'], 'current')
+  const strokeColor = initColor(style['--geist-stroke'], 'current')
 
-  svg = svg.split('"var(--geist-foreground)"').join('{color}')
-  console.log(svg)
+  svg = replaceAll(svg, '"var(--geist-fill)"', fillColor)
+  svg = replaceAll(svg, '"var(--geist-stroke)"', strokeColor)
+
+  return svg
 }
 
 export { camelize, replaceStyle, parseStyle, parseSvg }

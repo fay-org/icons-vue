@@ -20,7 +20,13 @@ export default (async () => {
     const svg: SVGSVGElement = icon.querySelector('svg')!
     const { data: optimizeString } = optimize(svg.outerHTML)
     const styles = parseStyle(svg.getAttribute('style')!)
-    const component = singleDefine(name, parseSvg(optimizeString, styles))
+    const component = singleDefine(
+      name,
+      parseSvg(
+        optimizeString.replace(/<svg/, '<svg viewBox="0 0 24 24"'),
+        styles
+      )
+    )
     await fs.outputFile(path.resolve(outDir, `${name}.tsx`), component)
   })
 })()

@@ -1,5 +1,11 @@
 ## Changelog
 
+## 0.1.7
+
+`2021-07-03`
+
+- fix icon loss viewBox attribute
+
 ## 0.1.6
 
 `2021-07-03`

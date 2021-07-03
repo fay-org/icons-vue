@@ -1,5 +1,11 @@
 ## Changelog
 
+## 0.1.6
+
+`2021-07-03`
+
+- fix few icons style error
+
 ## 0.1.5
 
 `2021-06-10`
